@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { Textfield } from '../../components/Form/Textfield'
 import { useUserActions } from '../../context/UserContext'
 import { api } from '../../lib/api/Api'
-import './index.css'
+import './index.scss'
 
 export const Login: React.FC = () => {
     const [state, dispatch] = useReducer(reducer, initalValue)
@@ -34,11 +34,11 @@ export const Login: React.FC = () => {
     }
 
     if(state.status === 'auth') {
-        return <Redirect to="/dashboard" />
+        return <Redirect to="/dashboard/albums" />
     }
  
     return (
-        <div className="main">
+        <div className="login-root">
             <form className='box box-container has-background-white-bis' onSubmit={handleSubmit}>
                 <p className="title is-4 has-text-weight-bold">
                     Hello, geek!

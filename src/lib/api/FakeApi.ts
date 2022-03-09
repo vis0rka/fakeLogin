@@ -1,5 +1,5 @@
 import { AxiosInstance } from 'axios'
-import { IAlbumns, IUser } from './StaticTypes'
+import { IAlbum, IUser } from './StaticTypes'
 
 abstract class ApiBase {
     constructor(protected client: AxiosInstance) {}
@@ -17,8 +17,20 @@ export class FakeApi extends ApiBase {
         return res.data
     }
 
+    getUserDetails = async () => {
+        const res = await this.client.get<IUser>(`/users/${this.getUserId()}`)
+
+        return res.data
+    }
+
     getAlbums = async () => {
-        const res = await this.client.get<IAlbumns[]>(`/users/${this.getUserId()}/albums`)
+        const res = await this.client.get<IAlbum[]>(`/users/${this.getUserId()}/albums`)
+
+        return res.data
+    }
+
+    getAlbumById = async (id:string) => {
+        const res = await this.client.get<IAlbum>(`/albums/${id}`)
 
         return res.data
     }

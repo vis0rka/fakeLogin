@@ -22,8 +22,9 @@ export interface IUser {
     }
 }
 
-export interface IAlbumns {
+export interface IAlbum {
     "userId": number,
     "id": number,
     "title": string
 }
+
