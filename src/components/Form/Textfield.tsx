@@ -23,7 +23,7 @@ export const Textfield: React.FC<TextfieldProps> = ({ label, placeholder, type, 
             <div className="control">
                 <input id={label} className={['input', error ? 'is-danger' : ''].join(' ')} type={type} placeholder={placeholder} value={value} onChange={onChange} {...inputProps}/>
             </div>
-            {error && <p className="help is-danger">{error}</p>}
+            {error && <p  data-testid='textfield-error' className="help is-danger">{error}</p>}
         </div>
     )
 }
