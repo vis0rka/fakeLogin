@@ -6,8 +6,6 @@ import { useUserState } from "../../context/UserContext";
 export const PrivateRoute: React.FC<RouteProps> = ({ children, ...rest }) => {
     const { isAuth } = useUserState()
 
-    console.log(isAuth)
-    
     return (
         <Route
             {...rest}
